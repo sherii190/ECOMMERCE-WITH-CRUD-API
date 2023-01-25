@@ -6,3 +6,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 const app = express();
+
+// Use helmet for security headers
+app.use(cors());
+app.use(helmet());
