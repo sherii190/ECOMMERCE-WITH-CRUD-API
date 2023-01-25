@@ -30,3 +30,30 @@ const User = require("./models/user.model");
 
 // Secret key for JWT
 const secret = "mysecretkey";
+
+// Login route
+app.post("/login", (req, res) => {
+  // Find the user with the given email
+  User.findOne({ email: req.body.email }, (err, user) => {
+    if (err) {
+      res.status(500).send(err);
+    } else if (!user) {
+      res.status(404).send({ message: "User not found" });
+    } else {
+      // Compare the given password with the hashed password in the database
+      bcrypt.compare(req.body.password, user.password, (err, match) => {
+        if (err) {
+          res.status(500).send(err);
+        } else if (!match) {
+          res.status(401).send({ message: "Invalid password" });
+        } else {
+          // Create and sign a JWT
+          const token = jwt.sign({ user }, secret, { expiresIn: "1h" });
+
+          // Send the JWT in the response
+          res.json({ token });
+        }
+      });
+    }
+  });
+});
