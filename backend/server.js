@@ -21,3 +21,6 @@ const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
+
+// Use JSON parser
+app.use(express.json());
