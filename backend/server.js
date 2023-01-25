@@ -24,3 +24,6 @@ connection.once("open", () => {
 
 // Use JSON parser
 app.use(express.json());
+
+// User model
+const User = require("./models/user.model");
