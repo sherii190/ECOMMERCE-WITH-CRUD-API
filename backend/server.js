@@ -27,3 +27,6 @@ app.use(express.json());
 
 // User model
 const User = require("./models/user.model");
+
+// Secret key for JWT
+const secret = "mysecretkey";
