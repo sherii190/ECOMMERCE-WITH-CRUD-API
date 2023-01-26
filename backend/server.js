@@ -76,3 +76,16 @@ const authenticateJWT = (req, res, next) => {
     return res.status(401).json({ message: "Unauthorized" });
   }
 };
+
+// API routes
+const usersRouter = require("./routes/users");
+app.use("/users", authenticateJWT, usersRouter);
+
+const productsRouter = require("./routes/products");
+app.use("/product", authenticateJWT, productsRouter);
+
+// Start server
+const port = process.env.PORT || 5000; // port number is set to 5000 if there isn't a preconfigured port
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
