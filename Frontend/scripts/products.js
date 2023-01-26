@@ -5,44 +5,53 @@ const categories = {
   4: "Furniture",
 };
 
-const body = document.getElementsByClassName("container-flush")[0];
+const body = document.getElementById("products");
+
+//Get token from the cookie
+
 let token = document.cookie.split("=")[1];
 token = token.split(";")[0];
 
-
 if (!token) {
   window.location.href = "http://localhost:5000/login";
-}
+} 
 
-const urlParams = new URLSearchParams(window.location.search);
-
-let id = urlParams.get("id");
-const GET_PRODUCTS_URL = "http://localhost:5000/product/"+id;
+// Fetch products from API
+const GET_PRODUCTS_URL = "http://localhost:5000/product/";
 const options = {
-method: "GET",
-headers: {
-  "Content-Type": "application/json",
-  "Authorization": `Bearer ${token}`,
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${token}`,
   },
 };
 
-// print detials of the product
 const getProducts = async () => {
   const response = await fetch(GET_PRODUCTS_URL, options);
   const products = await response.json();
   return products;
-}
+};
 
-const displayProduct = async () => {
+// Display products
+const displayProducts = async () => {
   const products = await getProducts();
-  body.innerHTML = `
-              <h2>${products.title}</h2>
-              <p>${products.description}</p>
-              <p>Price: $${products.price}</p>
-              <p>Stock: ${products.stock} units</p>
-              <p>Category: ${categories[products.category[0]]}</p>
-              <a href="admin/update-product.html?id=${products._id}" class="btn btn-primary">Update Product</a>
-              <a href="products.html" class="btn btn-secondary">Back</a>`;
-}
+  products.forEach((product) => {
+    const productDiv = document.createElement("div");
+    productDiv.classList.add("product");
+    productDiv.innerHTML = `
+            <div class="card m-1" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">${product.title}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">${categories[product.category]}</h6>
+                    <p class="card-text">${product.description}</p>
+                    <a href="product.html?id=${product._id}" class = " float-left">Details</a>
+                    <h5 class="card-title float-right">$${product.price}
+                    </h5>
+                </div>
+            </div>  
+        `;
+    body.appendChild(productDiv);
+  });
+};
 
-displayProduct();
+displayProducts();
