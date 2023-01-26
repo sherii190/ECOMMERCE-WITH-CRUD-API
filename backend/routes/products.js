@@ -41,3 +41,24 @@ router.route("/:id").delete((req, res) => {
     .then(() => res.json("Product deleted."))
     .catch((err) => res.status(400).json("Error: " + err));
 });
+
+// Use put to update a product
+router.route("/update/:id").put((req, res) => {
+  Product.findById(req.params.id)
+    .then((product) => {
+      product.title = req.body.title;
+      product.description = req.body.description;
+      product.price = Number(req.body.price);
+      product.stock = Number(req.body.stock);
+      product.image = req.body.image;
+      product.category = req.body.category;
+
+      product
+        .save()
+        .then(() => res.json("Product updated!"))
+        .catch((err) => res.status(400).json("Error: " + err));
+    })
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
+module.exports = router;
