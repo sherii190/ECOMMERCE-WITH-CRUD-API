@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --background-navbar: #000;
+
+  --font-color-dark: #333;
+  --font-color-light: aliceblue;
+}
+.container{
+
+  margin: 1rem 0 0 0;
+  display: flex;
+  justify-content: center;
+}
+*,
+button,
+input,
+textarea {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--background-navbar);
+}
+
+.navbar * {
+  color: var(--font-color-light);
+}
+
+.navbar {
+  display: flex;
+  gap: 2rem;
+
+  padding: 1rem;
+  background-color: #000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+
+  list-style: none;
+}
+
+.nav-item {
+  text-decoration: none;
+}
+
+.navbar p {
+  display: flex;
+  justify-items: end;
+}
+
+.navbar svg {
+  fill: var(--font-color-light);
+  width: 1rem;
+  padding-right: 0.35rem;
+}
+
+.navbar * {
+  color: var(--font-color-light);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.2rem;
+}
+
+.navbar a:hover {
+  background-color: var(--font-color-dark);
+}
+.btn{
+  padding: 1rem;
+  text-align: center;
+  border: none;
+  border-radius: 7px;
+  text-decoration: none;
+}
+.btn-primary{ 
+  background-color: #0069d9;
+  color: white;
+}
+.btn-secondary{
+  background-color: #5a6268;
+  color: white;
+}
+.btn-danger{
+  background-color: #c82333;
+  color: white;
+}
+table{
+  border-collapse: collapse;
+  text-align: center;
+}
+th{
+  background-color: rgb(212, 209, 209);
+  font-size: x-large;
+  padding: 1rem;
+}
+td{
+  padding: 0.3rem 0rem;
+}
+.card-body{
+  border: solid rgb(237, 234, 234) ;
+  border-radius: 10px;
+  text-align: center;
+}
+.img{
+  width: 16rem;
+}
+#products{
+  display: flex;
+  align-items: center;
+  justify-content:center ;
+  flex-direction: column;
+}
+.content-center{
+  margin: 1rem;
+  text-align: center;
+}
+.form-group{
+  margin: 1rem 0;
+}
+input{
+  border-radius: 4px;
+  border: solid rgb(174, 174, 175) 1px;
+}
+.drop-down{
+  background-color: #0069d9;
+  border: none ;
+  color: white;
+  border-radius: 6px;
+  padding: .7rem;
+}
+option{
+  color: white;
+}
+.details{
+  background-color: #157347;
+  color: white;
+  padding: 0.3rem;
+  border-radius: 4px;
+  text-decoration: none;
+  
+}
+.cart-btn:hover{
+  cursor: pointer;
+}

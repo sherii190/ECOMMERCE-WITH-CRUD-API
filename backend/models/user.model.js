@@ -12,6 +12,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  cart: {
+    type: Array,
+    default: [],
+  },
 });
 
 // Hash the user's password before saving

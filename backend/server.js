@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const multer = require("multer");
 
 const app = express();
 
@@ -48,7 +49,7 @@ app.post("/login", (req, res) => {
           res.status(401).send({ message: "Invalid password" });
         } else {
           // Create and sign a JWT
-          const token = jwt.sign({ user }, secret, { expiresIn: "1h" });
+          const token = jwt.sign({ user }, secret, { expiresIn: "100h" });
 
           // Send the JWT in the response
           res.json({ token });
@@ -77,9 +78,35 @@ const authenticateJWT = (req, res, next) => {
   }
 };
 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "../frontend/img/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.post("/upload", upload.single("image"), (req, res) => {
+  if (!req.file) {
+    console.log("No file received");
+    return res.send({
+      message: "No file received",
+      success: false,
+    });
+  } else {
+    return res.send({
+      message: "File received",
+      success: true,
+    });
+  }
+});
+
 // API routes
 const usersRouter = require("./routes/users");
-app.use("/users", authenticateJWT, usersRouter);
+app.use("/users", usersRouter);
 
 const productsRouter = require("./routes/products");
 app.use("/product", authenticateJWT, productsRouter);

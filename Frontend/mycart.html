@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Cart</title>
+    <script defer src="./scripts/mycart.js"></script>
+    <link rel="stylesheet" href="./styles/global.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a class="navbar-brand" href="products.html">E-Store</a>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="admin/manage-products.html">Admin Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html?category=Electronics"
+            >Electronics</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html?category=Clothing"
+            >Clothing</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html?category=Books">Books</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html?category=Furniture"
+            >Furniture</a
+          >
+        </li>
+      </ul>
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path
+            d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"
+          />
+        </svg>
+        <a class="nav-link" href="mycart.html"> View Cart </a>
+      </p>
+    </nav>
+
+
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Category</th>
+        </tr>
+      </thead>
+      <tbody id="cart-items"></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">Total</td>
+          <td id="total"></td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

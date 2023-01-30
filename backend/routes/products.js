@@ -61,4 +61,11 @@ router.route("/update/:id").put((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+router.route("/category/:category").get((req, res) => {
+  // return all products in a category
+  Product.find({ category: req.params.category[0] })
+    .then((products) => res.json(products))
+    .catch((err) => res.status(400).json("Error: " + err));
+});
+
 module.exports = router;

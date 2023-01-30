@@ -5,23 +5,45 @@ let form = document.querySelector("#update-product-form");
 let urlParams = new URLSearchParams(window.location.search);
 let id = urlParams.get("id");
 
-let token = document.cookie.split("=")[1];
+let token = document.cookie.split("token=")[1];
 token = token.split(";")[0];
 
 if (!token) {
   window.location.href = "http://localhost:5000/login";
-} 
-
+}
 
 const GET_PRODUCT_URL = "http://localhost:5000/product/" + id;
 const options = {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
-    "Authorization": `Bearer ${token}`,
+    Authorization: `Bearer ${token}`,
   },
 };
 
+function uploadImage() {
+  let formData = new FormData();
+  if (document.getElementById("image-file").files[0] == undefined) {
+    console.log("No image selected");
+    return false;
+  }
+  let imageFile = document.getElementById("image-file").files[0];
+  formData.append("image", imageFile);
+
+  try {
+    fetch("http://localhost:5000/upload", {
+      method: "POST",
+      body: formData,
+    }).then((response) => {
+      console.log(response.status);
+      console.log(response.statusText);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+
+  return imageFile.name;
+}
 // Fetch the product data from the server
 fetch(GET_PRODUCT_URL, options)
   .then((response) => response.json())
@@ -31,6 +53,8 @@ fetch(GET_PRODUCT_URL, options)
     form.querySelector("#description").value = data.description;
     form.querySelector("#price").value = data.price;
     form.querySelector("#stock").value = data.stock;
+    image = data.image;
+    console.log(data.image);
   })
   .catch((error) => console.log(error));
 
@@ -48,18 +72,28 @@ form.addEventListener("submit", (event) => {
   price = Number(price);
   stock = Number(stock);
 
+  let upload = uploadImage();
+  if (upload) {
+    image = `img/` + upload;
+    console.log(image);
+  }
+
   PUT_PRODUCT_URL = "http://localhost:5000/product/update/" + id;
   const options = {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${token}`,
+      Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ title, description, price, stock, category }),
+    body: JSON.stringify({
+      title,
+      description,
+      price,
+      stock,
+      category,
+      image,
+    }),
   };
-  console.log(options.body);
-  console.log(PUT_PRODUCT_URL);
-
   // Send a PUT request to the server to update the product
   fetch(PUT_PRODUCT_URL, options)
     .then((response) => response.json())
