@@ -1,9 +1,9 @@
 const body = document.querySelector("body");
 const categories = {
-  1: "Electronics",
-  2: "Books",
-  3: "Clothing",
-  4: "Furniture",
+  1: "Chips",
+  2: "Candy",
+  3: "Drinks",
+  4: "Nuts",
 };
 
 let token = document.cookie.split("token=")[1];

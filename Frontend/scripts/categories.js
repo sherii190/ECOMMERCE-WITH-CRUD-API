@@ -1,10 +1,10 @@
 const body = document.querySelector("body");
 const title = document.querySelector("title");
 const categories = {
-  Electronics: "1",
-  Books: "2",
-  Clothing: "3",
-  Furniture: "4",
+  Chips: "1",
+  Candy: "2",
+  Drinks: "3",
+  Nuts: "4",
 };
 
 // get category from url
