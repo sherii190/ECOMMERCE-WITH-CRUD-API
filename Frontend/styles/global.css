@@ -171,7 +171,9 @@ option{
 }
 #footer {
   width: 100%;
+  min-height: 100px;
   margin-top: 50px;
+  padding-top: 20px;
   display: grid;
   grid-template-rows: repeat(4, 1fr);
   background-color: #e75ce717;
@@ -179,5 +181,9 @@ option{
   justify-content: center;
   align-items: center;
   justify-items: center;
+}
+ #copyright{
+  color: rgb(154, 148, 148);
+  margin-top: 20px;
 }
 
