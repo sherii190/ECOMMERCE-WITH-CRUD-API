@@ -92,11 +92,11 @@ textarea {
   text-decoration: none;
 }
 .btn-primary{ 
-  background-color: #0069d9;
+  background-color: black;
   color: white;
 }
 .btn-secondary{
-  background-color: #5a6268;
+  background-color: rgb(243, 188, 235);
   color: white;
 }
 .btn-danger{
