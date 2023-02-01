@@ -163,15 +163,16 @@ option{
   cursor: pointer;
 }
 #footer{
+  min-height:50px ;
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: #e75ce717;
-  color: white;
   text-align: center;
-}
-#footer h4{
   display: flex;
-  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-content: center;
 }
+
