@@ -119,6 +119,7 @@ td{
   border: solid rgb(237, 234, 234) ;
   border-radius: 10px;
   text-align: center;
+
 }
 .img{
   width: 16rem;
@@ -127,7 +128,7 @@ td{
   display: flex;
   align-items: center;
   justify-content:center ;
-  flex-direction: column;
+  flex-direction: row;
 }
 .content-center{
   margin: 1rem;
