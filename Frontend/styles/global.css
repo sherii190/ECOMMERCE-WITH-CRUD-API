@@ -169,22 +169,15 @@ option{
 .cart-btn:hover{
   cursor: pointer;
 }
-#footer{
-  width: 90%;
+#footer {
+  width: 100%;
   margin-top: 50px;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  background-color: #e75ce717;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
 }
-.footer1{
-  grid-column: span 4;
-}
-.footer2{
-  grid-column: span 2;
-}
-.footer3{
-  grid-column: span 4;
-}
-.button{
-  display: flex;
-  margin-right: 30px;
-}
+
