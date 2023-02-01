@@ -2,7 +2,8 @@
 @import url("//db.onlinewebfonts.com/c/61b72ab4818459835a8b6daebcf75339?family=Bubble3D");
 
 body {
-  margin-bottom:50px;
+  margin: 0;
+  padding: 0;
 }
 
 .shop-name{
@@ -132,7 +133,9 @@ td{
   display: flex;
   align-items: center;
   justify-content:center ;
-  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+
 }
 .content-center{
   margin: 1rem;
@@ -167,20 +170,21 @@ option{
   cursor: pointer;
 }
 #footer{
-  min-height:80px ;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #e75ce717;
-  text-align: center;
+  width: 90%;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.footer1{
+  grid-column: span 4;
+}
+.footer2{
+  grid-column: span 2;
+}
+.footer3{
+  grid-column: span 4;
+}
+.button{
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  align-content: center;
+  margin-right: 30px;
 }
-#footer p{
-  color: rgba(162, 159, 159, 0.464);
-}
-
