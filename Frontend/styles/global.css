@@ -167,7 +167,7 @@ option{
   cursor: pointer;
 }
 #footer{
-  min-height:50px ;
+  min-height:80px ;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -175,8 +175,12 @@ option{
   background-color: #e75ce717;
   text-align: center;
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-content: center;
+}
+#footer p{
+  color: rgba(162, 159, 159, 0.464);
 }
 
