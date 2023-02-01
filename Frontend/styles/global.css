@@ -162,13 +162,12 @@ option{
   cursor: pointer;
 }
 #footer{
-  min-height: 150px;
-  background-color: #e75ce717;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-}
-p{
-
+  
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #e75ce717;
+    color: white;
+    text-align: center;
 }
