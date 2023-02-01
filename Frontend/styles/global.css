@@ -92,8 +92,8 @@ textarea {
   text-decoration: none;
 }
 .btn-primary{ 
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
 }
 .btn-secondary{
   background-color: #e75ce717;
@@ -153,7 +153,7 @@ option{
 }
 .details{
   background-color: #e75ce717;
-  color: white;
+  color: black;
   padding: 0.3rem;
   border-radius: 4px;
   text-decoration: none;
