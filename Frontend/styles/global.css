@@ -96,7 +96,7 @@ textarea {
   color: white;
 }
 .btn-secondary{
-  background-color: rgb(243, 188, 235);
+  background-color: #e75ce717;
   color: white;
 }
 .btn-danger{
@@ -152,7 +152,7 @@ option{
   color: white;
 }
 .details{
-  background-color: rgb(243, 188, 235);
+  background-color: #e75ce717;
   color: white;
   padding: 0.3rem;
   border-radius: 4px;
